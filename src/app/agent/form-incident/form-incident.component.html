@@ -1,0 +1,86 @@
+<div class="card">
+    <div class="card-header">
+        <h4 class="mb-0">Déclaration d'une Incident</h4>
+    </div>
+    <div class="card-body">
+        <form [formGroup]="incidentForm" (ngSubmit)="onSubmitForm()">
+     
+            <div class="form-group row">
+                <label class="col-lg-3 col-form-label form-control-label">Type de probleme</label>
+                <div class="col-lg-9">
+                    <select id="firstName" class="form-control" formControlName="type">
+                        <option value="" disabled selected>Choisir type de problème</option>
+                        <option value="Systeme">Systeme</option>
+                        <option value="Reseaux">Reseaux</option>
+                        <option value="Logiciel">Logiciel</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-lg-3 col-form-label form-control-label">Materiel</label>
+                <div class="col-lg-9">
+                    <select id="firstName" class="form-control" formControlName="materiel">
+                        <option value="" disabled selected>Materiel</option>
+                        <option value="pc portable">pc portable</option>
+                        <option value="pc fixe">pc fixe</option>
+                        <option value="imprimante">imprimante</option>
+                        <option value="mobile">mobile</option>
+                        
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-lg-3 col-form-label form-control-label">Titre</label>
+                <div class="col-lg-9">
+                    <input class="form-control" type="text" placeholder="titre..." formControlName="titre">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-lg-3 col-form-label form-control-label">Description</label>
+                <div class="col-lg-9">
+            <textarea class="form-control" rows="5" id="description" placeholder="Description..." formControlName="description"></textarea>
+                    
+                </div>
+            </div>
+
+            <div class="form-group row">
+                    <label class="col-lg-4">
+                            <label class="file-upload btn btn-primary">
+                                    Browse for file ... <input type="file" (change)="onSelectedFile($event)" accept="image/png, image/jpeg" style="display: none;"/>
+                                </label>
+                    </label>
+                    <div class="col-lg-8">
+                            <div class="progress">
+                                    <div class="progress-bar" [ngStyle]="{width:getWidth()}" >{{progress}}</div>
+                                  </div>
+                </div>
+            </div>
+
+           <div class="row" *ngIf="mode==='update' && incident.exitImg">
+                <label class="col-lg-5"></label>
+                <div class="col-lg-7">
+                <img [src]="getUrlImage()" style="height: 30%;width:30%" class="rounded" alt="Cinque Terre">
+            </div>
+           </div>
+           
+           
+           
+            <div class="form-group row">
+                
+                <div class="col-lg-6 text-left">
+
+                        <input *ngIf="mode==='add'" type="submit" class="btn btn-success" value="Enregistre" [disabled]="incidentForm.invalid">
+                        <input *ngIf="mode==='update'" type="submit" class="btn btn-success" value="Update" [disabled]="incidentForm.invalid">
+                </div>
+                <div class="col-lg-6 text-right">
+                        <input type="reset" (click)="annule()" class="btn btn-secondary" value="Annule">  
+                </div>
+            </div>
+
+           
+        </form>
+    </div>
+</div>

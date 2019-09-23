@@ -1,0 +1,58 @@
+<div class="modal fade" id="profile">
+    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Profile</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-lg-4"><h5>Email : </h5></div>
+            <div class="col-lg-8 mx-auto"><p>{{user.email}}</p></div>
+        </div><hr>
+
+        <div class="row">
+          <div class="col-lg-4"><h5>Nom : </h5></div>
+          <div class="col-lg-8 mx-auto"><p>{{user.nom}}</p></div>
+      </div><hr>
+
+      <div class="row">
+        <div class="col-lg-4"><h5>Prenom : </h5></div>
+        <div class="col-lg-8 mx-auto"><p>{{user.prenom}}</p></div>
+    </div><hr>
+
+    <div class="row">
+      <div class="col-lg-4"><h5>Telephone : </h5></div>
+      <div class="col-lg-8 mx-auto"><p>{{user.telephone}}</p></div>
+  </div><hr>
+
+  <div class="row">
+    <div class="col-lg-4"><h5>Role : </h5></div>
+    <div class="col-lg-8 mx-auto"><p *ngFor="let role of roles">{{role}}</p></div>
+</div><hr>
+
+  <div class="row" *ngIf="user.service!=null">
+    <div class="col-lg-4"><h5>Service : </h5></div>
+    <div class="col-lg-8 mx-auto"><p>{{user.service}}</p></div>
+</div><hr *ngIf="user.specialite!=null">
+
+<div class="row" *ngIf="user.specialite!=null">
+  <div class="col-lg-4"><h5>Specialite : </h5></div>
+  <div class="col-lg-8 mx-auto"><p>{{user.specialite}}</p></div>
+</div><hr *ngIf="user.specialite!=null">
+
+
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer ">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Ferme</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>

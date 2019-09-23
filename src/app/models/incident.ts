@@ -1,0 +1,22 @@
+export interface Incident{
+    id?:number;
+    type:string;
+    titre:string;
+    description:string;
+    materiel:string,
+    exitImg?:boolean;
+    extention?:string;
+    etat?:boolean;
+    dataAjoute?:string;
+    dataClouture?:string;
+    idagent:number;
+    idtechnicien?:number;
+    _links?:{
+        self:{
+            href:string;
+        },
+        incident:{
+            href:string;
+        }
+    }
+}

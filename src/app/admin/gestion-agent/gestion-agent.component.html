@@ -1,0 +1,93 @@
+
+
+<select (change)="searchAgent()" [(ngModel)]="searchText" class="form-control">
+        <option value="agentActive">Agent Activé</option>
+        <option value="agentNonActive">Agent Non Activé</option>
+      </select>
+
+<ul class="list-group">
+ 
+  <li *ngFor="let agent of agents"  class="list-group-item d-flex justify-content-between align-items-center">
+    
+<span (click)="changeEtatAgent(agent.id,!agent.actived)" [ngClass]="{'badge-info':agent.actived,'badge-danger':!agent.actived}" class="badge badge-pill">
+        <i class="fa " [ngClass]="{'fa-thumbs-up':agent.actived,'fa-thumbs-down':!agent.actived}" aria-hidden="true"></i>
+              </span>
+    {{agent.email}}
+
+    
+    
+    <button (click)="detailAgent(agent)" class="btn btn-dark btn-sm" data-toggle="modal" data-target="#myModal">
+      Detail
+    </button>
+    
+  </li>
+ 
+</ul>
+<div class="d-flex justify-content-center">
+<ul class="pagination " >
+        <li class="page-item"><a class="page-link" (click)="changePage(pageActuel-1)" *ngIf="pageActuel!=0">Previous</a></li>
+        <li  *ngFor="let item of tab,let i=index"  [ngClass]="{'page-item':true,'active':pageActuel===i}"><a class="page-link" (click)="changePage(i)">{{i+1}}</a></li>
+        <li class="page-item"><a class="page-link" (click)="changePage(pageActuel+1)" >Next</a></li>
+      </ul>
+    </div>
+
+<div class="modal fade" id="myModal">
+        <div class="modal-dialog modal-lg  modal-dialog-centered">
+          <div class="modal-content">
+          
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h4 class="modal-title">Détail Agent</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            
+            <!-- Modal body -->
+            <div class="modal-body">
+                   
+             <div class="row">
+                 <div class="col-lg-4"><h5>Email : </h5></div>
+                 <div class="col-lg-8 mx-auto"><p>{{agent.email}}</p></div>
+             </div><hr>
+
+             <div class="row">
+                    <div class="col-lg-4"><h5>Nom :</h5></div>
+                    <div class="col-lg-8 mx-auto"><p>{{agent.nom}}</p></div>
+                </div><hr>
+
+                <div class="row">
+                        <div class="col-lg-4"><h5>Penom : </h5></div>
+                        <div class="col-lg-8 mx-auto"><p>{{agent.prenom}}</p></div>
+                    </div><hr>
+                    <div class="row">
+                            <div class="col-lg-4"><h5>Telephone : </h5></div>
+                            <div class="col-lg-8 mx-auto"><p>{{agent.telephone}}</p></div>
+                        </div><hr>
+
+                        <div class="row">
+                                <div class="col-lg-4"><h5>service : </h5></div>
+                                <div class="col-lg-8 mx-auto"><p>{{agent.service}}</p></div>
+                            </div>
+
+               
+
+                    <div class="row" *ngIf="!agent.actived">
+                            <div class="col-lg-6 text-right">
+                                    <button type="button" (click)="changeEtatAgent(agent.id,!agent.actived)" class="btn btn-primary" data-dismiss="modal">Valider</button>
+                            </div>
+                            </div>
+                            <div class="row" *ngIf="agent.actived">
+                                    <div class="col-lg-6 text-right">
+                                            <button type="button" (click)="changeEtatAgent(agent.id,!agent.actived)" class="btn btn-danger" data-dismiss="modal">Désactiver</button>
+                                    </div>
+                                    </div>
+
+            </div>
+            
+            <!-- Modal footer 
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>-->
+            
+          </div>
+        </div>
+      </div>

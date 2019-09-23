@@ -1,0 +1,96 @@
+<div id="accordion">
+    <div class="card">
+      <div class="card-header" id="headingOne">
+        <h5 class="mb-0">
+          <button  class="btn  btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            Gestion des Agents
+          </button>
+        </h5>
+      </div>
+  
+      <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+        <div class="card-body">
+                <div class="list-group">
+         
+                        <a  class="list-group-item list-group-item-action " (click)="changeDeMode('gestionAgent')">Liste des Agents</a>
+                       
+                      </div>
+            
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header" id="headingTwo">
+        <h5 class="mb-0">
+          <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            Gestion des Techniciens
+          </button>
+        </h5>
+      </div>
+      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+        <div class="card-body">
+            <div class="list-group">
+         
+                <a  class="list-group-item list-group-item-action " (click)="changeDeMode('created-technicien')">Creation  Technicien</a>
+                <a  class="list-group-item list-group-item-action " (click)="changeDeMode('gestion-technicien')">Liste des Techniciens</a>
+               
+              </div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header" id="headingThree">
+        <h5 class="mb-0">
+          <button class="btn btn-link collapsed " data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            Gestion des Incidents
+          </button>
+        </h5>
+      </div>
+      <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+        <div class="card-body">
+                <div class="list-group">
+         
+                    <a  class="list-group-item list-group-item-action " (click)="changeDeMode('gestionIncident')">Liste des Incidents</a>
+                    <a  class="list-group-item list-group-item-action " (click)="changeDeMode('sta')">Statistique</a>
+                    
+
+                      </div>
+        </div>
+      </div>
+
+      <div class="card">
+          <div class="card-header" id="headingThree">
+            <h5 class="mb-0">
+              <button class="btn btn-link collapsed " data-toggle="collapse" data-target="#collapse4" aria-expanded="false" aria-controls="collapseThree">
+                Gestion des Service
+              </button>
+            </h5>
+          </div>
+          <div id="collapse4" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+            <div class="card-body">
+                    <div class="list-group">
+                        <a  class="list-group-item list-group-item-action " (click)="changeDeMode('creeService')">Creation d'un Service</a>
+                        <a  class="list-group-item list-group-item-action " (click)="changeDeMode('gestionService')">Liste des Services</a>
+                          </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header" id="heading5">
+              <h5 class="mb-0">
+                <button class="btn btn-link collapsed " data-toggle="collapse" data-target="#collapse5" aria-expanded="false" aria-controls="collapseThree">
+                  Espace personnel
+                </button>
+              </h5>
+            </div>
+            <div id="collapse5" class="collapse" aria-labelledby="heading5" data-parent="#accordion">
+              <div class="card-body">
+                      <div class="list-group">
+                          <a  class="list-group-item list-group-item-action " data-toggle="modal" data-target="#profile">Profile</a>
+                          <a  class="list-group-item list-group-item-action " data-toggle="modal" data-target="#password">Modifier votre mot de passe</a>
+                            </div>
+              </div>
+            </div>
+    </div>
+ 
+

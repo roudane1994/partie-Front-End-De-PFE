@@ -1,0 +1,117 @@
+<div class="row">
+        <div class="col-md-6">
+                        <input type="text" (keyup)="searchIncident()" [(ngModel)]="searchText"   class="form-control" placeholder="Search..." aria-describedby="helpId">
+        </div>
+        <div class="col-md-6">
+                        <select  [(ngModel)]="type" (change)="changerType()" class="form-control">
+                                        <option value="valider">Valider</option>
+                                        <option value="nonValider">Non Valider</option>
+                                      </select>
+        </div>
+</div>
+
+
+                    <ul class="list-group">
+                     
+                      <li *ngFor="let incident of resultIncident"  class="list-group-item d-flex justify-content-between align-items-center">
+                        
+                    <span (click)="validerIncident(incident.id,!incident.etat)" [ngClass]="{'badge-info':incident.etat,'badge-danger':!incident.etat}" class="badge badge-pill">
+                            <i class="fa " [ngClass]="{'fa-thumbs-up':incident.etat,'fa-thumbs-down':!incident.etat}" aria-hidden="true"></i>
+                                  </span>
+                        {{incident.titre}}
+
+                        
+                        
+                        <button (click)="detailIncident(incident)" class="btn btn-dark btn-sm" data-toggle="modal" data-target="#myModal">
+                          Detail
+                        </button>
+                        
+                      </li>
+                     
+                    </ul>
+
+                    <div class="d-flex justify-content-center">
+                                <ul class="pagination " >
+                                        <li class="page-item"><a class="page-link" (click)="changePage(pageActuel-1)" *ngIf="pageActuel!=0">Previous</a></li>
+                                        <li  *ngFor="let item of tab,let i=index"  [ngClass]="{'page-item':true,'active':pageActuel===i}"><a class="page-link" (click)="changePage(i)">{{i+1}}</a></li>
+                                        <li class="page-item"><a class="page-link" (click)="changePage(pageActuel+1)" >Next</a></li>
+                                      </ul>
+                                    </div>
+                    
+                   
+
+                   
+                    <div class="modal fade" id="myModal">
+                            <div class="modal-dialog modal-lg  modal-dialog-centered">
+                              <div class="modal-content">
+                              
+                                <!-- Modal Header -->
+                                <div class="modal-header">
+                                  <h4 class="modal-title">Détail Incident</h4>
+                                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                </div>
+                                
+                                <!-- Modal body -->
+                                <div class="modal-body">
+                                        <div class="row" *ngIf="item.exitImg">
+                                                
+                                                <div class="col-lg-8 mx-auto">
+                                                        <img [src]="getUrlImage()" style="height:100%;width:100%" class="rounded" alt="Cinque Terre">
+                                                </div>
+                                            </div><hr>
+                                 <div class="row">
+                                     <div class="col-lg-4"><h5>Titre : </h5></div>
+                                     <div class="col-lg-8 mx-auto"><p>{{item.titre}}</p></div>
+                                 </div><hr>
+            
+                                 <div class="row">
+                                        <div class="col-lg-4"><h5>Desc :</h5></div>
+                                        <div class="col-lg-8 mx-auto"><p>{{item.description}}</p></div>
+                                    </div><hr>
+            
+                                    <div class="row">
+                                            <div class="col-lg-4"><h5>Type : </h5></div>
+                                            <div class="col-lg-8 mx-auto"><p>{{item.type}}</p></div>
+                                        </div><hr>
+                                        <div class="row">
+                                                <div class="col-lg-4"><h5>Materiel : </h5></div>
+                                                <div class="col-lg-8 mx-auto"><p>{{item.materiel}}</p></div>
+                                            </div><hr>
+            
+                                            <div class="row">
+                                                    <div class="col-lg-4"><h5>Date Ajoute : </h5></div>
+                                                    <div class="col-lg-8 mx-auto"><p>{{item.dataAjoute}}</p></div>
+                                                </div><hr>
+                                                <div class="row"  *ngIf="item.etat" >
+                                                        <div class="col-lg-4"><h5>Date Clouture : </h5></div>
+                                                        <div class="col-lg-8 mx-auto"><p>{{item.dataClouture}}</p></div>
+                                                    </div><hr>
+            
+                                    <div class="row">
+                                            <div class="col-lg-4"><h5>Agent : </h5></div>
+                                            <div class="col-lg-8 mx-auto"><p>{{item.idagent}}</p></div>
+                                        </div><hr>
+            
+                                        <div class="row" *ngIf="!item.etat">
+                                                <div class="col-lg-6 text-right">
+                                                        <button type="button" (click)="validerIncident(item.id,!item.etat)" class="btn btn-primary" data-dismiss="modal">Valider</button>
+                                                </div>
+                                                </div>
+                                                <div class="row" *ngIf="item.etat">
+                                                        <div class="col-lg-6 text-right">
+                                                                <button type="button" (click)="validerIncident(item.id,!item.etat)" class="btn btn-danger" data-dismiss="modal">Anuller</button>
+                                                        </div>
+                                                        </div>
+            
+                                </div>
+                                
+                                <!-- Modal footer 
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                </div>-->
+                                
+                              </div>
+                            </div>
+                          </div>
+        
+           

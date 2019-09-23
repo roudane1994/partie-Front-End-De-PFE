@@ -1,0 +1,60 @@
+<div class=" row " >    
+    <canvas id="canvas" >{{ Linechart }}</canvas>    
+  </div> 
+  <div class=" row " >    
+    <canvas id="canvas2" >{{ barChart }}</canvas>    
+  </div> 
+  <div class=" row " >    
+    <canvas id="canvas3" >{{ line2Chart }}</canvas>    
+  </div>
+  <div class=" row " >    
+      <select [(ngModel)]="annee" (change)="changerParAnne()" class="form-control">
+          <option value="2010">Année 2010</option>
+          <option value="2011">Année 2011</option>
+          <option value="2012">Année 2012</option>
+          <option value="2013">Année 2013</option>
+          <option value="2014">Année 2014</option>
+          <option value="2015">Année 2015</option>
+          <option value="2016">Année 2016</option>
+          <option value="2017">Année 2017</option>
+          <option value="2018">Année 2018</option>
+          <option value="2019">Année 2019</option>
+        
+        </select>
+    <canvas id="canvas4" >{{ pieChart }}</canvas>    
+  </div>
+
+  <div class=" row " >    
+     
+       
+            <div class="col">
+                <select [(ngModel)]="annee2" (change)="changerParAnneAndType()" class="form-control">
+                    <option value="2010">Année 2010</option>
+                    <option value="2011">Année 2011</option>
+                    <option value="2012">Année 2012</option>
+                    <option value="2013">Année 2013</option>
+                    <option value="2014">Année 2014</option>
+                    <option value="2015">Année 2015</option>
+                    <option value="2016">Année 2016</option>
+                    <option value="2017">Année 2017</option>
+                    <option value="2018">Année 2018</option>
+                    <option value="2019">Année 2019</option>
+                  
+                  </select>
+            </div>
+            <div class="col">
+                <select [(ngModel)]="type" (change)="changerParAnneAndType()" class="form-control">
+
+                    <option value="Reseaux">Reseaux</option>
+                    <option value="Logiciel">Logiciel</option>
+                    <option value="Systeme">Systeme</option>
+                  
+                  
+                  </select>
+            </div>
+       
+    <canvas id="canvas5" >{{ pieChartAnneAndMateriel }}</canvas>    
+  </div>
+
+ 
+ 

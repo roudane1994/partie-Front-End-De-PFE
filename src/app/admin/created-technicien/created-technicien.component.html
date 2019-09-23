@@ -1,0 +1,90 @@
+<div class="row">
+        <div class="col-md-12">
+     
+            <div class="row">
+                <div class="col-md-12 mx-auto">
+
+                    <!-- form card login -->
+                    <div class="card rounded-0">
+                        <div class="card-header">
+                            <h3 class="mb-0">Nouveau Technicien</h3>
+                        </div>
+                        <div class="card-body">
+                            <form class="form" role="form" autocomplete="off" (ngSubmit)="onRegister(f.value)" #f="ngForm">
+                                <div class="form-row">
+                                        <div class="col">
+                                            <!-- First name -->
+                                            <div class="md-form">
+                                               <label for="uname1">Email</label>
+                                               <input type="text" class="form-control  rounded-0" name="username" id="username" ngModel required="">
+                                               <div class="invalid-feedback">Oops, you missed this one.</div>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <!-- Last name -->
+                                            <div class="md-form">
+                                               <label for="uname1">Nom</label>
+                                               <input type="text" class="form-control  rounded-0" name="nom" id="nom" ngModel required="">
+                                               <div class="invalid-feedback">Oops, you missed this one.</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                            <div class="col">
+                                                <!-- tele -->
+                                                <div class="md-form">
+                                                  <label for="uname1">Telephone</label>
+                                                <input type="text" class="form-control  rounded-0" name="telephone" id="telephone" ngModel required="">
+                                                <div class="invalid-feedback">Oops, you missed this one.</div>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <!-- prenom -->
+                                                <div class="md-form">
+                                                   <label for="uname1">Prenom</label>
+                                                   <input type="text" class="form-control  rounded-0" name="prenom" id="prenom" ngModel required="">
+                                                   <div class="invalid-feedback">Oops, you missed this one.</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                                <div class="col">
+                                                   
+                                                    <label>Password</label>
+                                                  <input type="password" class="form-control  rounded-0" id="password" name="password" ngModel required="" autocomplete="new-password">
+                                                <div class="invalid-feedback">Enter your password too!</div>
+                                                </div>
+                                                <div class="col">
+                                                    <!-- Last name -->
+                                                    <div class="md-form">
+                                                        <label>Confirmation</label>
+                                                        <input type="password" class="form-control  rounded-0" id="repassword" name="repassword" ngModel required="" autocomplete="new-password">
+                                                         <div class="invalid-feedback">Enter your password too!</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                    <div class="form-group ">
+                                            <label >Type de probleme</label>
+                                            
+                                                <select id="firstName" class="form-control rounded-0" id="specialite" name="specialite" ngModel>
+                                                    <option value="" disabled selected>Choisir type de problème</option>
+                                                    <option value="Systeme">Systeme</option>
+                                                    <option value="Reseaux">Reseaux</option>
+                                                    <option value="Logiciel">Logiciel</option>
+                                                </select>
+                                            
+                                        </div>
+ 
+                                <button  type="submit" class="btn btn-success btn-lg" id="btnLogin">Enregistre</button>
+
+                                
+                            </form>
+                            
+                        </div>
+                        <div class="alert alert-danger alert-dismissible fade show" *ngIf="isError">
+                                        
+                                <strong>Erreur :</strong> {{error}}
+                              </div>
+                        <!--/card-block-->
+                    </div>
