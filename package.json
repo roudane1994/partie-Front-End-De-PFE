@@ -22,7 +22,7 @@
     "@auth0/angular-jwt": "^3.0.0",
     "angular-font-awesome": "^3.1.2",
     "bootstrap": "^4.3.1",
-    "chart.js": "^2.8.0",
+    "chart.js": "^2.9.4",
     "font-awesome": "^4.7.0",
     "jquery": "^3.4.1",
     "ng-chartjs": "^0.1.2",
